@@ -37,6 +37,7 @@ public void login() throws InterruptedException
 
 	driver.findElement(By.cssSelector("#main-element > div > form > div.middle-input-user-box > input"));
 	
+	System.out.println("TestLaunched");
 	
 	driver.close();
 	driver.quit();
