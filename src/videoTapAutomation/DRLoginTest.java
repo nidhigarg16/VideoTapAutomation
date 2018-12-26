@@ -3,10 +3,11 @@ package videoTapAutomation;
 import java.util.List;
 
 import org.openqa.selenium.By;
-
+import org.openqa.selenium.By.ByXPath;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -71,10 +72,8 @@ public class DRLoginTest
 	{
 
 		WebDriverWait Wait1 = new WebDriverWait(driver, 20);
-		Wait1.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(
-				"#navbar > md-toolbar > div > div.width-40-per.navbar-color-blue.flex > div > condtional > h2")));
-		Wait1.until(ExpectedConditions.elementToBeClickable(By.cssSelector(
-				"#navbar > md-toolbar > div > div.width-40-per.navbar-color-blue.flex > div > condtional > h2")));
+		Wait1.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#navbar > md-toolbar > div > div.width-40-per.navbar-color-blue.flex > div > condtional > h2")));
+		Wait1.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#navbar > md-toolbar > div > div.width-40-per.navbar-color-blue.flex > div > condtional > h2")));
 		WebElement Heading = driver.findElement(By.cssSelector("#navbar > md-toolbar > div > div.width-40-per.navbar-color-blue.flex > div > condtional > h2"));
 
 		String actualTitle = Heading.getText();
@@ -139,19 +138,66 @@ public class DRLoginTest
 		int iSize = chkBx_Genre.size();
 		System.out.println("No. of checkboxes are:- " + iSize);
 		
-		for(int i=1; i<=5; i++)
+		for(int i=1; i<=iSize; i++)
 		{
+			if(i==4)          // number of checkboxes to be selected
+				break;
+			WebElement value = chkBx_Genre.get(i);
 			
-			
-			WebElement chkBx_Genre_List = driver.findElement(By.xpath("//input[@type='checkbox']"));
-	//		if(!chkBx_Genre_List.isSelected())
-				chkBx_Genre_List.click();
+			value.click();
 			
 			Thread.sleep(3000);
 	    }
 		Thread.sleep(3000);
-		driver.findElement(By.cssSelector("#dialogContent_createProject > div:nth-child(2) > md-dialog-actions > button.md-button.ng-scope.md-default-theme.md-ink-ripple > span"));
+		
+	 // Adding Thumbnail to Project :- 
+		WebElement Thumbnail = driver.findElement(By.xpath("//*[@id=\"dialogContent_createProject\"]/div[2]/div[1]/div/p/span"));
+		Thumbnail.click();
+		Thread.sleep(5000);
+		WebElement AddButton = driver.findElement(By.id("imageuploader_new_proj"));
+		AddButton.sendKeys("C:/Users/Dell/Downloads/Videotap/Travel.jpg");
+		Thread.sleep(5000);
+		WebElement DoneButton = driver.findElement(By.xpath("//*[@id=\"dialogContent_107\"]/div/button"));
+		DoneButton.click();
 		Thread.sleep(3000);
+//		WebElement OKButton = driver.findElement(By.xpath("//*[@id=\"addImage-dig\"]/md-dialog-actions/button"));
+//		OKButton.click();
+//		Thread.sleep(3000);
+//		
+	/*	WebElement SearchButton = driver.findElement(By.xpath("//*[@id=\"add_image_toolbar\"]/div/button[1]/ng-md-icon"));
+		SearchButton.click();
+		WebElement SearchField = driver.findElement(By.xpath("//*[@id=\"addImage-dig\"]/md-toolbar[2]/div/form/input"));
+		SearchField.click();
+		SearchField.sendKeys("Travel.jpg");
+		WebElement checkbox = driver.findElement(By.xpath("#dialogContent_addImage-dig > md-card > md-table-container > table > tbody > tr:nth-child(1) > td.md-cell.md-checkbox-cell > md-checkbox > div.md-container.md-ink-ripple"));
+		checkbox.click();
+		WebElement OKButton = driver.findElement(By.xpath("//*[@id=\"addImage-dig\"]/md-dialog-actions/button"));
+		OKButton.click();
+    */
+		
+		// Adding videoa to media library:- 
+		WebElement selectMediaButton = driver.findElement(By.xpath("//*[@id=\"dialogContent_createProject\"]/div[2]/div[3]/div[1]/div"));
+		selectMediaButton.click();
+		Thread.sleep(3000);
+		WebElement checkbox = driver.findElement(By.xpath("//*[@id=\"dialogContent_addMedia-dig\"]/md-card/md-table-container/table/tbody[1]/tr/td[1]/md-checkbox"));
+		checkbox.click();
+		WebElement importButton = driver.findElement(By.xpath("//*[@id=\"addMedia-dig\"]/md-dialog-actions/button"));
+		importButton.click();
+		
+		driver.findElement(By.xpath("//*[@id=\"dialogContent_createProject\"]/div[2]/md-dialog-actions/button[1]")).click();
+		driver.findElement(By.xpath("//*[@id=\"dialogContent_createProject\"]/div[2]/md-dialog-actions/button[1]/span")).click();
+		Thread.sleep(8000);
+		
+    	WebDriverWait Wait4 = new WebDriverWait(driver, 40);
+		Wait4.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"navbar\"]/md-toolbar/div/div[4]")));
+		Wait4.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"navbar\"]/md-toolbar/div/div[4]")));
+		
+		WebElement Header = driver.findElement(By.xpath("//*[@id=\"navbar\"]/md-toolbar/div/div[4]"));
+		String ActualHeader = Header.getText();
+		Assert.assertEquals(ActualHeader, "Welcome to Edit Suite");
+		
+		Thread.sleep(5000);
+	
 		driver.quit();
 
 	}
