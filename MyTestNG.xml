@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>	
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<test name="VideoTap">
+
+		<classes>
+			<class name="videoTapAutomation.DRLoginTest">
+				<methods>
+					<include name= "browserSetUp" />
+					<include name= "vtapLogin" />
+				</methods>
+			</class>
+			<class name="videoTapAutomation.CreateVODProject">
+
+				<methods>
+					<exclude name= "createnewProject" />
+					<exclude name= "closewebBrowser" />
+				</methods>
+			</class>
+			
+			<class name="videoTapAutomation.EditVODProject">
+				<methods>
+					<exclude name= "OpenProject" />
+					<exclude name=  "EditSuiteFunc" />
+				</methods>
+			</class>
+		</classes>
+   	</test>
+</suite>	
