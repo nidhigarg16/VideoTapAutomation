@@ -1,80 +1,191 @@
 package videoTapAutomation;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 import testBase.TestBase;
 
-public class EditVODProject extends TestBase{
+public class EditVODProject extends TestBase {
 
-	@Test (priority=1)
+	@Test
 	private void browserSetUp() throws InterruptedException {
-		init();
-		driverwait(3);
-		DRLoginTest obj1 = new DRLoginTest();
-		obj1.vtapLogin();
+	//	init();
+	//	driverwait(3);
+	//	DRLoginTest obj1 = new DRLoginTest();
+	//	obj1.vtapLogin();
+	System.out.println("Class is Setup");
 		driverwait(6);
 	}
-	
-	@Test (priority=2)
+
+	@Test
 	private void OpenProject() throws InterruptedException {
 		System.out.println("hello");
-		String OpenURL = "https://dr3.videotap.com/#/workspace/5c25b1b0925cc0b43bcac007";
-		//implicitwait(3);
+		String OpenURL = "https://dr3.videotap.com/#/workspace/5c2c4fac925cc0b43bcac10f";
 		driver.get(OpenURL);
 		driverwait(8);
 	}
-	
-	@Test (enabled=false)
-	private void EditSuiteFunc() throws InterruptedException 
-	{
+
+	@Test
+	private void EditSuiteFunc() throws InterruptedException {
 
 		System.out.println("WELCOME TO EDIT SUITE ...!!!!!");
 		driverwait(3);
-		WebElement projectFileButton = driver.findElement(By.id("btnMediaLib"));
+		WebElement projectFileButton = driver.findElement(By.xpath("//*[@id=\"btnMediaLib\"]"));
 		projectFileButton.click();
 		driverwait(2);
-		WebElement projectFile = driver.findElement(By.id("5c25b1a3925cc0b43bcac006"));
+		WebElement projectFile = driver.findElement(By.id("5c2c4f9e925cc0b43bcac10e_anchor"));
 		projectFile.click();
-		driverwait(3);
-		WebElement ElementsButton = driver.findElement(By.xpath("//md-whiteframe[@id='accordinToolBar']//div[10]//button[2]//md-icon[1]"));
+		driverwait(8);
+		WebElement ElementsButton = driver
+				.findElement(By.xpath("//md-whiteframe[@id='accordinToolBar']//div[10]//button[2]//md-icon[1]"));
 		ElementsButton.click();
 		driverwait(3);
-		WebElement AddElementsButton = driver.findElement(By.xpath("/html[1]/body[1]/ui-view[1]/div[1]/ui-view[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/command-boutique[1]/div[2]/div[1]/div[1]/property-boutique[1]/md-tabs[1]/md-tabs-wrapper[1]/md-tabs-canvas[1]/md-pagination-wrapper[1]/md-tab-item[2]"));
+		WebElement AddElementsButton = driver.findElement(By.xpath(
+				"/html[1]/body[1]/ui-view[1]/div[1]/ui-view[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/command-boutique[1]/div[2]/div[1]/div[1]/property-boutique[1]/md-tabs[1]/md-tabs-wrapper[1]/md-tabs-canvas[1]/md-pagination-wrapper[1]/md-tab-item[2]"));
 		AddElementsButton.click();
 		driverwait(5);
+
+	}
+
+	@Test
+	private void AddButtonFunc() throws InterruptedException {
 		WebElement Button = driver.findElement(By.xpath("//*[@id=\"menu-option-Container\"]/div[1]/div[2]/div/img"));
 		Button.click();
-		
 		driverwait(3);
 	}
 
-	@Test(priority=3)
-	private void UploadFileFromDrive() throws InterruptedException{
+	@Test
+	private void AddFormFunc() throws InterruptedException {
+		WebElement Form = driver.findElement(By.xpath("//*[@id=\"menu-option-Container\"]/div[1]/div[3]"));
+		Form.click();
+		driverwait(3);
+	}
+
+	@Test
+	private void AddTextFunc() throws InterruptedException {
+		WebElement Text = driver.findElement(By.xpath("//*[@id=\"menu-option-Container\"]/div[1]/div[4]"));
+		Text.click();
+		driverwait(3);
+	}
+
+	@Test
+	private void AddImageFunc() throws InterruptedException {
+		WebElement Image = driver.findElement(By.xpath("//*[@id=\"menu-option-Container\"]/div[1]/div[5]"));
+		Image.click();
+		driverwait(3);
+	}
+
+	@Test
+	private void AddTimerFunc() throws InterruptedException {
+		WebElement Timer = driver.findElement(By.xpath("//*[@id=\"menu-option-Container\"]/div[1]/div[6]"));
+		Timer.click();
+		driverwait(3);
+	}
+
+	@Test
+	private void AddMenuFunc() throws InterruptedException {
+		WebElement Menu = driver.findElement(By.xpath("//*[@id=\"menu-option-Container\"]/div[1]/div[7]"));
+		Menu.click();
+		driverwait(3);
+	}
+
+	@Test
+	private void AddArrowFunc() throws InterruptedException {
+		WebElement Arrow = driver.findElement(By.xpath("//*[@id=\"menu-option-Container\"]/div[1]/div[8]/div/img"));
+		Arrow.click();
+
+		driverwait(3);
+	}
+
+	@Test
+	private void AddLineFunc() throws InterruptedException {
+		WebElement Line = driver.findElement(By.xpath("//*[@id=\"menu-option-Container\"]/div[1]/div[9]"));
+		Line.click();
+		driverwait(3);
+	}
+
+	@Test
+	private void AddSRQquestion() throws InterruptedException {
+		WebElement QuestionBtn = driver
+				.findElement(By.xpath("//*[@id=\"menu-option-Container\"]/div[1]/div[10]/div/img"));
+		QuestionBtn.click();
+		driverwait(2);
+		WebElement SRQBtn = driver.findElement(By.xpath("//md-list-item[@class='_md']//div[1]//button[1]"));
+		SRQBtn.click();
+
+		driverwait(2);
+	}
+
+	@Test
+	private void AddMRQquestion() throws InterruptedException {
+		WebElement QuestionBtn = driver
+				.findElement(By.xpath("//*[@id=\"menu-option-Container\"]/div[1]/div[10]/div/img"));
+		QuestionBtn.click();
+		WebElement MRQBtn = driver.findElement(By.xpath("//*[@id=\"dialogContent_63\"]/md-list/md-list-item/div[2]"));
+		MRQBtn.click();
+		driverwait(3);
+		WebElement Close = driver.findElement(By.xpath("/html/body/div[5]/md-dialog/md-dialog-actions/button"));
+		Close.click();
+	}
+
+	@Test
+	private void AddMatchTheFollowingQuestion() throws InterruptedException {
+		WebElement QuestionBtn = driver
+				.findElement(By.xpath("//*[@id=\"menu-option-Container\"]/div[1]/div[10]/div/img"));
+		QuestionBtn.click();
+		WebElement MatchQuesBtn = driver
+				.findElement(By.xpath("//*[@id=\"dialogContent_63\"]/md-list/md-list-item/div[3]"));
+		MatchQuesBtn.click();
+		driverwait(3);
+		WebElement Close = driver.findElement(By.xpath("/html/body/div[5]/md-dialog/md-dialog-actions/button"));
+		Close.click();
+	}
+
+	@Test
+	private void AddSequenceQuestion() throws InterruptedException {
+		WebElement QuestionBtn = driver
+				.findElement(By.xpath("//*[@id=\"menu-option-Container\"]/div[1]/div[10]/div/img"));
+		QuestionBtn.click();
+		WebElement SequenceQuesBtn = driver
+				.findElement(By.xpath("//*[@id=\"dialogContent_63\"]/md-list/md-list-item/div[4]"));
+		SequenceQuesBtn.click();
+		driverwait(3);
+		WebElement Close = driver.findElement(By.xpath("/html/body/div[5]/md-dialog/md-dialog-actions/button"));
+		Close.click();
+	}
+
+	@Test
+	private void AddFillBlankQuestion() throws InterruptedException {
+		WebElement QuestionBtn = driver
+				.findElement(By.xpath("//*[@id=\"menu-option-Container\"]/div[1]/div[10]/div/img"));
+		QuestionBtn.click();
+		WebElement FillBlankQuesBtn = driver
+				.findElement(By.xpath("//*[@id=\"dialogContent_63\"]/md-list/md-list-item/div[5]"));
+		FillBlankQuesBtn.click();
+		driverwait(3);
+		WebElement Close = driver.findElement(By.xpath("/html/body/div[5]/md-dialog/md-dialog-actions/button"));
+		Close.click();
+	}
+
+	@Test
+	private void UploadFileFromDrive() throws InterruptedException 
+	{
 		
-		WebElement UploadFilesBtn = driver.findElement(By.xpath("//div[contains(text(),'Upload Files')]"));
-		UploadFilesBtn.click();
-	
-		implicitwait(4);
-	
-		WebElement DriveBtn = driver.findElement(By.id("driveuploader"));	
+		  WebElement UploadFilesBtn = driver.findElement(By.xpath("//div[contains(text(),'Upload Files')]"));
+		  UploadFilesBtn.click();
+		  implicitwait(4);
+		
+		WebElement DriveBtn = driver.findElement(By.id("driveuploader"));
 		DriveBtn.sendKeys("C:/Users/Dell/Downloads/Videotap/Around the World in 80 Clips.mp4");
 		Thread.sleep(5000);
 
 		WebElement SaveToMediaLib = driver.findElement(By.xpath("//*[@id=\"unique\"]/md-dialog-actions/button[2]"));
 		SaveToMediaLib.click();
-		driverwait(130);
+		driverwait(150);
 		WebElement DoneBtn = driver.findElement(By.xpath("/html/body/div[3]/md-dialog/md-dialog-actions/button"));
 		DoneBtn.click();
-		
+
 	}
-	
-	
-	@Test(enabled=false)
-	private void abcde() throws InterruptedException {
-		
-	}
+
 }

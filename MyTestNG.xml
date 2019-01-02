@@ -13,8 +13,8 @@
 			<class name="videoTapAutomation.CreateVODProject">
 
 				<methods>
-					<exclude name= "createnewProject" />
-					<exclude name= "closewebBrowser" />
+					<include name= "createnewProject" />
+					<include name= "closewebBrowser" />
 				</methods>
 			</class>
 			

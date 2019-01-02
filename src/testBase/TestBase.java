@@ -24,6 +24,7 @@ public class TestBase {
         LoggingPreferences logPrefs = new LoggingPreferences();
         logPrefs.enable(LogType.BROWSER, Level.ALL);
         caps.setCapability(CapabilityType.LOGGING_PREFS, logPrefs);
+        
         driver = new ChromeDriver(caps);
 		
 	//	driver = new ChromeDriver();

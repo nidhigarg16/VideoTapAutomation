@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>	
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<test name="VideoTap">
+
+		<classes>
+		
+		<classes>
+		
+			<class name="videoTapAutomation.DRLoginTest">
+				<methods>
+					<include name= "browserSetUp" />
+					<include name= "vtapLogin" />
+				</methods>
+			</class>
+			
+			<class name="videoTapAutomation.CreateVODProject">
+				<methods>
+					<exclude name= "browserSetUp" />
+					<include name= "DesignProject" />
+					<include name= "CreateNewProjectFunc" />
+					<include name= "AddNamefieldFunc" />
+					<include name= "AddLanguageFunc" />
+					<include name= "ContentSelectFunc" />
+					<include name= "GenreSelectFunc" />
+					<include name= "AddThumbnailFunc" />
+					<include name= "AddVideoMediaFunc" />
+					<include name= "AddTags" />
+					<include name= "ClickNextFunc" />
+					<include name= "ClickCreateFunc" />
+					<include name= "WaitForElement" />
+					<include name= "closewebBrowser" />
+				</methods>
+			</class>
+		
+		
+			<class name="videoTapAutomation.EditVODProject">
+				<methods>
+					<include name="browserSetUp" />
+					<include name="OpenProject" />
+					<include name="EditSuiteFunc" />
+					<include name="AddButtonFunc" />
+					<include name="AddFormFunc" />
+					<include name="AddTextFunc" />
+					<include name="AddImageFunc" />
+					<include name="AddTimerFunc" />
+					<include name="AddMenuFunc" />
+					<include name="AddArrowFunc" />
+					<include name="AddLineFunc" />
+					<include name="AddSRQquestion" />
+					<include name="AddMRQquestion" />
+					<include name="AddMatchTheFollowingQuestion" />
+					<include name="AddSequenceQuestion" />
+					<include name="AddFillBlankQuestion" />
+					<include name="UploadFileFromDrive" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>	
