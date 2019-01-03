@@ -15,15 +15,17 @@ import testBase.TestBase;
 public class CreateVODProject extends TestBase 
 {
 
-	/* @Test
+	 @Test(priority=1)
 	private void browserSetUp() throws InterruptedException 
-	{
-	System.out.println("Class set up");
+	{	
+		init();
+		driverwait(3);
+		DRLoginTest obj1 = new DRLoginTest();
+		obj1.vtapLogin();
 	}
-	*/
+	 
 	
-	
-	@Test
+	@Test(priority=2)
 	private void DesignProject() throws InterruptedException 
 	{
 
@@ -35,7 +37,7 @@ public class CreateVODProject extends TestBase
 		Assert.assertEquals(actualTitle, "Welcome to DESIGN SUITE");
 	}
 	
-	 @Test
+	 @Test(priority=3)
 		private void CreateNewProjectFunc() throws InterruptedException
 		{ 
 	
@@ -46,7 +48,7 @@ public class CreateVODProject extends TestBase
 		driverwait(2);
 		}
 		
-	  @Test
+	  @Test(priority=4)
 		private void AddNamefieldFunc() throws InterruptedException
 		{
 		WebElement NameField = driver.findElement(By.xpath("//input[@ng-model='project.name'][@name='name']"));
@@ -57,7 +59,7 @@ public class CreateVODProject extends TestBase
 		NameField.sendKeys("ProjectDemo");
 		}
 		
-	  @Test
+	  @Test(priority=5)
 		private void AddLanguageFunc() throws InterruptedException
 		{
 		WebElement LanguageField = driver.findElement(By.xpath("//md-select[@ng-model='project.language']"));
@@ -70,7 +72,7 @@ public class CreateVODProject extends TestBase
 		driverwait(2);
 		}
 		
-	  @Test
+	  @Test(priority=6)
 		private void ContentSelectFunc() throws InterruptedException
 		{
 		WebElement ContentSelection = driver
@@ -103,7 +105,7 @@ public class CreateVODProject extends TestBase
 			}
 		}
 		
-	  @Test
+	  @Test(priority=7)
 		private void GenreSelectFunc() throws InterruptedException
 		{
 		    // Finding the Check Box element:-
@@ -123,7 +125,7 @@ public class CreateVODProject extends TestBase
 		Thread.sleep(3000);
 		}
 		
-	  @Test
+	  @Test(priority=8)
 		private void AddThumbnailFunc() throws InterruptedException
 		{
 		WebElement Thumbnail = driver
@@ -138,23 +140,21 @@ public class CreateVODProject extends TestBase
 		Thread.sleep(3000);
 		}
 		
-	  @Test
+	  @Test(priority=9)
 		private void AddVideoMediaFunc() throws InterruptedException
 		{
 		// Adding video to media library:-
-		WebElement selectMediaButton = driver
-				.findElement(By.xpath("//*[@id=\"dialogContent_createProject\"]/div[2]/div[3]/div[1]/div"));
+		WebElement selectMediaButton = driver.findElement(By.xpath("//*[@id=\"dialogContent_createProject\"]/div[2]/div[3]/div[1]/div"));
 		selectMediaButton.click();
 		Thread.sleep(3000);
-		WebElement checkbox = driver.findElement(By.xpath(
-				"//*[@id=\"dialogContent_addMedia-dig\"]/md-card/md-table-container/table/tbody[1]/tr/td[1]/md-checkbox"));
+		WebElement checkbox = driver.findElement(By.xpath("//*[@id=\"dialogContent_addMedia-dig\"]/md-card/md-table-container/table/tbody[1]/tr/td[1]/md-checkbox"));
 		checkbox.click();
 		WebElement importButton = driver.findElement(By.xpath("//*[@id=\"addMedia-dig\"]/md-dialog-actions/button"));
 		importButton.click();
 		Thread.sleep(8000);
 		}
 		
-	  @Test
+	  @Test(priority=10)
 		private void AddTags() throws InterruptedException
 		{
 		WebElement Tags = driver.findElement(By.cssSelector("#input-131"));
@@ -164,7 +164,7 @@ public class CreateVODProject extends TestBase
 		Thread.sleep(3000);
 		}
 		
-	  @Test
+	  @Test(priority=11)
 		private void ClickNextFunc() throws InterruptedException
 		{
 		WebElement clickOnNext = driver.findElement(By.xpath("//*[@id=\"dialogContent_createProject\"]/div[2]/md-dialog-actions/button[1]"));
@@ -172,7 +172,7 @@ public class CreateVODProject extends TestBase
 		Thread.sleep(1000);
 		}
 		
-	  @Test
+	  @Test(priority=12)
 		private void ClickCreateFunc() throws InterruptedException
 		{
 		WebElement clickOnCreate = driver.findElement(By.xpath("//*[@id=\"dialogContent_createProject\"]/div[2]/md-dialog-actions/button[1]/span"));
@@ -180,7 +180,7 @@ public class CreateVODProject extends TestBase
 		Thread.sleep(8000);
 		}
 		
-	  @Test
+	  @Test(priority=13)
 		private void WaitForElement() throws InterruptedException 
 	  {
 		
@@ -197,7 +197,7 @@ public class CreateVODProject extends TestBase
 		}
 		
 
-	@Test
+	@Test(priority=14)
 	private void closewebBrowser() throws InterruptedException 
 	{
 		System.out.println("Yepiiee Test Pass...");

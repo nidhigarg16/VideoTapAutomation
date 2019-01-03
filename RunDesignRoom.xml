@@ -16,7 +16,7 @@
 			
 			<class name="videoTapAutomation.CreateVODProject">
 				<methods>
-					<exclude name= "browserSetUp" />
+					<include name= "browserSetUp" />
 					<include name= "DesignProject" />
 					<include name= "CreateNewProjectFunc" />
 					<include name= "AddNamefieldFunc" />
@@ -53,6 +53,7 @@
 					<include name="AddSequenceQuestion" />
 					<include name="AddFillBlankQuestion" />
 					<include name="UploadFileFromDrive" />
+					<include name= "closewebBrowser" />
 				</methods>
 			</class>
 		</classes>

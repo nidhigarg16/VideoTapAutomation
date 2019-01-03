@@ -18,7 +18,6 @@ public class DRLoginTest extends TestBase {
 	}
 
 		@Test
-	
 		public	void vtapLogin() throws InterruptedException {
 		
 		String title = driver.getTitle();
