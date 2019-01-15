@@ -52,8 +52,11 @@
 					<include name="AddMatchTheFollowingQuestion" />
 					<include name="AddSequenceQuestion" />
 					<include name="AddFillBlankQuestion" />
+					<include name="TriggerFunction" />
+					<include name="ArrangementFunction" />
 					<include name="UploadFileFromDrive" />
 					<include name= "closewebBrowser" />
+					
 				</methods>
 			</class>
 		</classes>

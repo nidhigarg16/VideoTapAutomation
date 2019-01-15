@@ -3,17 +3,21 @@ package testBase;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TestBase {
 
 	public static WebDriver driver;
-	String baseURL = "https://dr3.videotap.com/#";
+	String baseURL = "https://qadr.videotap.com:1337/#!/";
 
 	public void init() throws InterruptedException {
 
@@ -47,4 +51,12 @@ public class TestBase {
 		System.out.println("Implicit wait for "+ time);
 		
 	}
+	
+	public void waitUntilWebElementIsNotVisible(int time, String xpath) throws Exception {
+
+		WebDriverWait wait = new WebDriverWait(driver, time);
+		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+		element.click();
+
+		}
 }

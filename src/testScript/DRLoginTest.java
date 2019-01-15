@@ -1,4 +1,4 @@
-package videoTapAutomation;
+package testScript;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -27,18 +27,17 @@ public class DRLoginTest extends TestBase {
 		System.out.println("TestLaunched");
 
 		WebElement Username = driver
-				.findElement(By.cssSelector("#main-element > div > form > div.middle-input-user-box > input"));
+				.findElement(By.xpath("//*[@id=\"main-element\"]/div/form/div[8]/input"));
 		Username.click();
-		Username.sendKeys("nidhi@vtap.com");
+		Username.sendKeys("nidhi@videotap.com");
 
 		WebElement Password = driver
-				.findElement(By.cssSelector("#main-element > div > form > div.middle-input-pass-box > input"));
+				.findElement(By.xpath("//*[@id=\"main-element\"]/div/form/div[11]/input"));
 		Password.click();
 		Password.sendKeys("123456789");
 		driverwait(2);
 
-		WebElement LoginButton = driver.findElement(By
-				.cssSelector("#main-element > div > form > div:nth-child(13) > div.middle-right-front-overlay > img"));
+		WebElement LoginButton = driver.findElement(By.xpath("//img[@ng-click='login(form)']"));
 		LoginButton.click();
 		
 		driverwait(5);

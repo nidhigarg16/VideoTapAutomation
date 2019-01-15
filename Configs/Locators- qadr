@@ -1,0 +1,14 @@
+baseURL = "https://qadr.videotap.com:1337/#!/"
+
+DRLoginTest.java class
+Username = //*[@id=\"main-element\"]/div/form/div[8]/input
+Password = //*[@id=\"main-element\"]/div/form/div[11]/input
+LoginButton = #main-element > div > form > div:nth-child(14) > div.middle-right-front-overlay > img
+
+CreateVODProject.java class
+actualTitle = //h2[@class='design-suite-head']
+CreateNewProjectButton = #navbar > md-toolbar > div > div:nth-child(2) > condtional > div > a
+NameField = //input[@ng-model='project.name'][@name='name']
+LanguageField = //md-select[@ng-model='project.language']
+langSelection = //div[contains(text(),'English')]
+ContentSelection = #radio_64 > div.md-container.md-ink-ripple > div.md-off

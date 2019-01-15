@@ -1,4 +1,4 @@
-package videoTapAutomation;
+package testScript;
 
 import java.util.List;
 
@@ -42,7 +42,7 @@ public class CreateVODProject extends TestBase
 		{ 
 	
 		WebElement CreateNewProjectButton = driver
-				.findElement(By.cssSelector("#navbar > md-toolbar > div > div:nth-child(2) > condtional > div"));
+				.findElement(By.cssSelector("#navbar > md-toolbar > div > div:nth-child(2) > condtional > div > a"));
 		CreateNewProjectButton.click();
 
 		driverwait(2);
@@ -56,7 +56,7 @@ public class CreateVODProject extends TestBase
 		driverwait(3);
 		implicitwait(5);
 		NameField.click();
-		NameField.sendKeys("ProjectDemo");
+		NameField.sendKeys("First Test Project");
 		}
 		
 	  @Test(priority=5)
@@ -76,18 +76,18 @@ public class CreateVODProject extends TestBase
 		private void ContentSelectFunc() throws InterruptedException
 		{
 		WebElement ContentSelection = driver
-				.findElement(By.cssSelector("#radio_64 > div.md-container.md-ink-ripple > div.md-off"));
+				.findElement(By.xpath("//md-radio-button[@id='radio_165']//div[@class='md-off']"));
 		ContentSelection.click();
 		driverwait(2);
 		List<WebElement> radioButton = driver.findElements(By.tagName("md-radio-button"));
 		System.out.println(radioButton.size());
 		
 		// To Select Type of Content Radio Button:-
-		driver.findElement(By.cssSelector("#radio_64 > div.md-container.md-ink-ripple > div.md-on")).click();
-		WebDriverWait Wait3 = new WebDriverWait(driver, 20);
-		Wait3.until(ExpectedConditions
+		driver.findElement(By.xpath("//md-radio-button[@id='radio_165']//div[@class='md-off']")).click();
+		WebDriverWait Wait = new WebDriverWait(driver, 20);
+		Wait.until(ExpectedConditions
 				.visibilityOfElementLocated(By.cssSelector("#radio_64 > div.md-container.md-ink-ripple > div.md-on")));
-		Wait3.until(ExpectedConditions
+		Wait.until(ExpectedConditions
 				.elementToBeClickable(By.cssSelector("#radio_64 > div.md-container.md-ink-ripple > div.md-on")));
 
 		for (int i = 0; i < radioButton.size(); i++) 
@@ -129,13 +129,13 @@ public class CreateVODProject extends TestBase
 		private void AddThumbnailFunc() throws InterruptedException
 		{
 		WebElement Thumbnail = driver
-				.findElement(By.xpath("//*[@id=\"dialogContent_createProject\"]/div[2]/div[1]/div/p/span"));
+				.findElement(By.xpath("//span[contains(text(),'Select Horizontal Thumbnails')]"));
 		Thumbnail.click();
 		Thread.sleep(5000);
 		WebElement AddButton = driver.findElement(By.id("imageuploader_new_proj"));
-		AddButton.sendKeys("C:/Users/Dell/Downloads/Videotap/Travel.jpg");
+		AddButton.sendKeys("C:/Users/Dell/Downloads/Videotap/Images/dairymilk-cadbury-s-chocolate-bouquet.jpg");
 		Thread.sleep(5000);
-		WebElement DoneButton = driver.findElement(By.xpath("//*[@id=\"dialogContent_107\"]/div/button"));
+		WebElement DoneButton = driver.findElement(By.xpath("//button[@ng-click='done()']"));
 		DoneButton.click();
 		Thread.sleep(3000);
 		}
@@ -143,7 +143,6 @@ public class CreateVODProject extends TestBase
 	  @Test(priority=9)
 		private void AddVideoMediaFunc() throws InterruptedException
 		{
-		// Adding video to media library:-
 		WebElement selectMediaButton = driver.findElement(By.xpath("//*[@id=\"dialogContent_createProject\"]/div[2]/div[3]/div[1]/div"));
 		selectMediaButton.click();
 		Thread.sleep(3000);
@@ -157,9 +156,9 @@ public class CreateVODProject extends TestBase
 	  @Test(priority=10)
 		private void AddTags() throws InterruptedException
 		{
-		WebElement Tags = driver.findElement(By.cssSelector("#input-131"));
+		WebElement Tags = driver.findElement(By.xpath("//input[@id='input-324']"));
 		Tags.click();
-		Tags.sendKeys("Kajaria Tiles");
+		Tags.sendKeys("Chocolate");
 		Tags.sendKeys(Keys.ENTER);
 		Thread.sleep(3000);
 		}
