@@ -37,7 +37,7 @@ public class TestBase {
 		driver.manage().window().maximize();
 		System.out.println("Test initiated");
 		implicitwait(10);
-		driverwait(5);
+		driverwait(2);
 	}
 
 	public void driverwait(int time) throws InterruptedException {

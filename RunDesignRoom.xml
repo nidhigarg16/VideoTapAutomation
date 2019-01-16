@@ -5,16 +5,16 @@
 
 		<classes>
 		
-		<classes>
-		
-			<class name="videoTapAutomation.DRLoginTest">
+			
+		<!-- 
+			<class name="testScript.DRLoginTest">
 				<methods>
 					<include name= "browserSetUp" />
 					<include name= "vtapLogin" />
 				</methods>
 			</class>
 			
-			<class name="videoTapAutomation.CreateVODProject">
+			<class name="testScript.CreateVODProject">
 				<methods>
 					<include name= "browserSetUp" />
 					<include name= "DesignProject" />
@@ -32,9 +32,9 @@
 					<include name= "closewebBrowser" />
 				</methods>
 			</class>
+		 -->
 		
-		
-			<class name="videoTapAutomation.EditVODProject">
+			<class name="testScript.EditVODProject">
 				<methods>
 					<include name="browserSetUp" />
 					<include name="OpenProject" />
@@ -54,7 +54,7 @@
 					<include name="AddFillBlankQuestion" />
 					<include name="TriggerFunction" />
 					<include name="ArrangementFunction" />
-					<include name="UploadFileFromDrive" />
+					<exclude name="UploadFileFromDrive" />
 					<include name= "closewebBrowser" />
 					
 				</methods>

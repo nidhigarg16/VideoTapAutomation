@@ -35,8 +35,6 @@ public class CreateVODProject extends TestBase {
 
 		implicitwait(10);
 
-		// driver.get("https://qadr.videotap.com:1337/#!/");
-
 		driverwait(5);
 	}
 

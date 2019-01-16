@@ -4,31 +4,49 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterTest;
+
+// import org.testng.annotations.AfterTest;
+
 import org.testng.annotations.Test;
 
 import testBase.TestBase;
 
 public class EditVODProject extends TestBase {
 
-	@Test(priority=1)
+	@Test
 	private void browserSetUp() throws InterruptedException {
 		init();
-		driverwait(3);
-		DRLoginTest obj1 = new DRLoginTest();
-		obj1.vtapLogin();
-		driverwait(6);
+		
+	//	DRLoginTest obj1 = new DRLoginTest();
+	//	obj1.vtapLogin();
+		
+		WebElement Username = driver.findElement(By.xpath("//*[@id=\"main-element\"]/div/form/div[8]/input"));
+		Username.click();
+		Username.sendKeys("nidhi@videotap.com");
+
+		WebElement Password = driver.findElement(By.xpath("//*[@id=\"main-element\"]/div/form/div[11]/input"));
+		Password.click();
+		Password.sendKeys("123456789");
+		driverwait(1);
+
+		WebElement LoginButton = driver.findElement(By.xpath("//img[@ng-click='login(form)']"));
+		LoginButton.click();
+		driverwait(10);
+	
 	}
 
-	@Test(priority=2)
+	@Test
 	private void OpenProject() throws InterruptedException {
 		System.out.println("hello");
+		implicitwait(10);
+		driver.get("https://qadr.videotap.com:1337/#!/login");
+		driverwait(5);
 		String OpenURL = "https://qadr.videotap.com:1337/#!/workspace/5c3ee26e8c25d951b673f21e";
 		driver.get(OpenURL);
-		driverwait(8);
+		driverwait(15);
 	}
 
-	@Test(priority=3)
+	@Test
 	private void EditSuiteFunc() throws InterruptedException 
 	{
 
@@ -42,41 +60,41 @@ public class EditVODProject extends TestBase {
 		driverwait(8);
 	}
 	
-	@Test(priority=4)
+	@Test
 	private void ElementsFunction() throws InterruptedException
 	{
 		
 		WebElement ElementsButton = driver.findElement(By.xpath("//md-whiteframe[@id='accordinToolBar']//div[7]//button[2]//md-icon[1]"));
 		ElementsButton.click();
 		driverwait(3);
-		WebElement AddElementsButton = driver.findElement(By.xpath("//*[@id=\"tab-item-60\"]"));
+		WebElement AddElementsButton = driver.findElement(By.xpath("/html[1]/body[1]/ui-view[1]/div[1]/ui-view[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/command-boutique[1]/div[2]/div[1]/div[1]/property-boutique[1]/md-tabs[1]/md-tabs-wrapper[1]/md-tabs-canvas[1]/md-pagination-wrapper[1]/md-tab-item[2]"));
 		AddElementsButton.click();
 		driverwait(5);
 
 	}
 
-	@Test(priority=5)
+	@Test
 	private void AddButtonFunc() throws InterruptedException {
 		WebElement Button = driver.findElement(By.xpath("//*[@id=\"menu-option-Container\"]/div[1]/div[2]/div/img"));
 		Button.click();
 		driverwait(3);
 	}
 
-	@Test(priority=6)
+	@Test
 	private void AddFormFunc() throws InterruptedException {
 		WebElement Form = driver.findElement(By.xpath("//div[@class='mrg-tp-10 menu-btn-container mouse-pointer backgroung-black']//img[@class='worksapce-menu-icon']"));
 		Form.click();
 		driverwait(3);
 	}
 
-	@Test(priority=7)
+	@Test
 	private void AddTextFunc() throws InterruptedException {
 		WebElement Text = driver.findElement(By.xpath("//*[@id=\"menu-option-Container\"]/div[1]/div[4]"));
 		Text.click();
 		driverwait(3);
 	}
 
-	@Test(priority=8)
+	@Test
 	private void AddImageFunc() throws InterruptedException {
 	//	WebElement Image = driver.findElement(By.xpath("//div[@class='toolbar newelement layout-fill layout-wrap layout-align-center-start layout-row']//div[5]//div[1]//img[1]"));
         WebElement Image = driver.findElement(By.xpath("//*[@id=\"menu-option-Container\"]/div[1]/div[5]/div/img"));
@@ -84,21 +102,21 @@ public class EditVODProject extends TestBase {
 		driverwait(3);
 	}
 
-	@Test(priority=9)
+	@Test
 	private void AddTimerFunc() throws InterruptedException {
 		WebElement Timer = driver.findElement(By.xpath("//*[@id=\"menu-option-Container\"]/div[1]/div[6]"));
 		Timer.click();
 		driverwait(3);
 	}
 
-	@Test(priority=10)
+	@Test
 	private void AddMenuFunc() throws InterruptedException {
 		WebElement Menu = driver.findElement(By.xpath("//*[@id=\"menu-option-Container\"]/div[1]/div[7]"));
 		Menu.click();
 		driverwait(3);
 	}
 
-	@Test(priority=11)
+	@Test
 	private void AddArrowFunc() throws InterruptedException {
 		WebElement Arrow = driver.findElement(By.xpath("//*[@id=\"menu-option-Container\"]/div[1]/div[8]/div/img"));
 		Arrow.click();
@@ -106,24 +124,28 @@ public class EditVODProject extends TestBase {
 		driverwait(3);
 	}
 
-	@Test(priority=12)
+	@Test
 	private void AddLineFunc() throws InterruptedException {
 		WebElement Line = driver.findElement(By.xpath("//*[@id=\"menu-option-Container\"]/div[1]/div[9]"));
 		Line.click();
 		driverwait(3);
 	}
 
-	@Test(priority=13)
+	@Test
 	private void AddSRQquestion() throws InterruptedException {
-		WebElement QuestionBtn = driver.findElement(By.xpath("//*[@id=\"menu-option-Container\"]/div[1]/div[10]/div/img"));
+	//	WebElement QuestionBtn = driver.findElement(By.xpath("//*[@id=\"menu-option-Container\"]/div[1]/div[10]/div/img"));
+		WebElement QuestionBtn = driver.findElement(By.xpath("//*[@id=\"menu-option-Container\"]/div/div[11]/div/img"));
+		
 		QuestionBtn.click();
 		driverwait(2);
-		WebElement SRQBtn = driver.findElement(By.xpath("//md-list-item[@class='_md']//div[1]//button[1]"));
+	//	WebElement SRQBtn = driver.findElement(By.xpath("//md-list-item[@class='_md']//div[1]//button[1]"));
+		WebElement SRQBtn = driver.findElement(By.xpath("//md-list-item[@class='md-no-proxy _md']//div[1]//button[1]"));
+		
 		SRQBtn.click();
 		driverwait(2);
 	}
 
-	@Test(priority=14)
+	@Test
 	private void AddMRQquestion() throws InterruptedException {
 		WebElement QuestionBtn = driver.findElement(By.xpath("//*[@id=\"menu-option-Container\"]/div[1]/div[10]/div/img"));
 		QuestionBtn.click();
@@ -132,7 +154,7 @@ public class EditVODProject extends TestBase {
 		driverwait(3);
 	}
 
-	@Test(priority=15)
+	@Test
 	private void AddMatchTheFollowingQuestion() throws InterruptedException {
 		WebElement QuestionBtn = driver.findElement(By.xpath("//*[@id=\"menu-option-Container\"]/div[1]/div[10]/div/img"));
 		QuestionBtn.click();
@@ -141,7 +163,7 @@ public class EditVODProject extends TestBase {
 		driverwait(3);
 	}
 
-	@Test(priority=16)
+	@Test
 	private void AddSequenceQuestion() throws InterruptedException {
 		WebElement QuestionBtn = driver.findElement(By.xpath("//*[@id=\"menu-option-Container\"]/div[1]/div[10]/div/img"));
 		QuestionBtn.click();
@@ -150,7 +172,7 @@ public class EditVODProject extends TestBase {
 		driverwait(3);
 	}
 
-	@Test(priority=17)
+	@Test
 	private void AddFillBlankQuestion() throws InterruptedException {
 		WebElement QuestionBtn = driver.findElement(By.xpath("//*[@id=\"menu-option-Container\"]/div[1]/div[10]/div/img"));
 		QuestionBtn.click();
@@ -159,7 +181,7 @@ public class EditVODProject extends TestBase {
 		driverwait(3);
 	}
 
-	@Test(priority=18)
+	@Test
 	private void TriggerFunction() throws InterruptedException
 	{	
 		driverwait(3);
@@ -206,7 +228,7 @@ public class EditVODProject extends TestBase {
 		driverwait(3);
 	}
 	
-	@Test(priority=19)
+	@Test
 	private void ArrangementFunction()
 	{
 		WebElement ArrangementBtn = driver.findElement(By.xpath("//md-whiteframe[@id='accordinToolBar']//div[8]//button[2]//md-icon[1]"));
@@ -255,7 +277,7 @@ public class EditVODProject extends TestBase {
 	}
 	
 
-	@AfterTest
+	@Test
 	private void closewebBrowser() throws InterruptedException 
 	{
 		System.out.println("Yepiiee Test Pass...");
