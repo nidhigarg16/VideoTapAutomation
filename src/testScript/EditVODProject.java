@@ -17,14 +17,13 @@ public class EditVODProject extends TestBase {
 		driverwait(3);
 		DRLoginTest obj1 = new DRLoginTest();
 		obj1.vtapLogin();
-	System.out.println("Class is Setup");
 		driverwait(6);
 	}
 
 	@Test(priority=2)
 	private void OpenProject() throws InterruptedException {
 		System.out.println("hello");
-		String OpenURL = "https://qadr.videotap.com:1337/#!/workspace/5c347e59925cc0b43bcac4ff";
+		String OpenURL = "https://qadr.videotap.com:1337/#!/workspace/5c3ee26e8c25d951b673f21e";
 		driver.get(OpenURL);
 		driverwait(8);
 	}
@@ -38,7 +37,7 @@ public class EditVODProject extends TestBase {
 		WebElement projectFileButton = driver.findElement(By.xpath("//md-icon[@id='workspaceMark']"));
 		projectFileButton.click();
 		driverwait(2);
-		WebElement projectFile = driver.findElement(By.xpath("//a[@id='5c347e4b925cc0b43bcac4fe_anchor']"));
+		WebElement projectFile = driver.findElement(By.xpath("//a[@id='5c3ee25f8c25d951b673f21d_anchor']"));
 		projectFile.click();
 		driverwait(8);
 	}
